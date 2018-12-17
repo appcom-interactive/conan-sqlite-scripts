@@ -21,10 +21,10 @@ class SQLiteConan(ConanFile):
         patch = splitVersion[2]
 
         if len(minor) == 1:
-            minor = '0' + minor;
+            minor = '0' + minor
 
         if len(patch) == 1:
-            patch = '0' + patch;
+            patch = '0' + patch
 
         return (major + minor + patch + "00")
 
@@ -36,13 +36,10 @@ class SQLiteConan(ConanFile):
     # compile using cmake
     def build(self):
 
-        version = self.alternateVersion()
-
         cmake = CMake(self)
-        library_folder = "%s/sqlite-amalgamation-%s" % (self.source_folder, version)
         cmake.verbose = True
 
-        cmake.definitions["SQLITE3_VERSION"] = version
+        cmake.definitions["SQLITE3_VERSION"] = self.alternateVersion()
 
         if self.settings.os == "Android":
             cmake.definitions["CMAKE_SYSTEM_VERSION"] = self.settings.os.api_level
