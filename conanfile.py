@@ -4,12 +4,12 @@ import os
 class SQLiteConan(ConanFile):
     name = "sqlite"
     version = "3.26.0"
-    author = "Ralph-Gordon Paul (gordon@rgpaul.com)"
+    author = "Ralph-Gordon Paul (g.paul@appcom-interactive.de)"
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False], "android_ndk": "ANY", "android_stl_type":["c++_static", "c++_shared"]}
     default_options = "shared=False", "android_ndk=None", "android_stl_type=c++_static"
     description = "SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine."
-    url = "https://github.com/Manromen/conan-sqlite-scripts"
+    url = "https://github.com/appcom-interactive/conan-sqlite-scripts"
     license = "Public Domain"
     exports_sources = "cmake-modules/*", "CMakeLists.txt"
 
